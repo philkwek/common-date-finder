@@ -31,7 +31,7 @@ const App = () => {
 	};
 
 	return (
-		<div className="flex flex-col h-screen items-center">
+		<div className="flex flex-col h-screen items-center mb-10">
 			{/* <Calendar
 					multiples
 					value={dates}
