@@ -14,10 +14,20 @@ const App = () => {
 	);
 	const [isCreateHangoutClicked, setIsCreateHangoutClicked] =
 		useState<boolean>(false);
+	const [isFindHangoutClicked, setIsFindHangoutClicked] =
+		useState<boolean>(false);
 
 	const setNewDates = (newDates: DateObject | DateObject[] | null) => {
 		setDates(newDates);
 		console.log(newDates);
+	};
+
+	const openCreateNewHangoutPage = () => {
+		setIsCreateHangoutClicked(true);
+	};
+
+	const openFindHangoutPage = () => {
+		setIsFindHangoutClicked(true);
 	};
 
 	return (
@@ -28,7 +38,13 @@ const App = () => {
 					onChange={(newDates) => setNewDates(newDates)}
 				/> */}
 			<Header />
-			<HomePage />
+			{!isCreateHangoutClicked && !isFindHangoutClicked && (
+				<HomePage
+					openCreateNewHangoutPage={openCreateNewHangoutPage}
+					openFindHangoutPage={openFindHangoutPage}
+				/>
+			)}
+			{isCreateHangoutClicked && <CreateNewHangoutPage />}
 		</div>
 	);
 };
